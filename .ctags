@@ -1,0 +1,9 @@
+--languages=C
+--kinds-C=+defgpstux
+--fields=+iaS
+--extras=+F
+--c-kinds=+p
+--exclude=.git
+--exclude=*.o
+--exclude=*.cmd
+--exclude=*.mod.c
