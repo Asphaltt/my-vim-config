@@ -155,8 +155,8 @@ set laststatus=2
 
 " 显示行号
 set number
-" 取消换行
-set nowrap
+" 默认换行
+set wrap
 
 " 括号配对情况, 跳转并高亮一下匹配的括号
 set showmatch
@@ -290,6 +290,14 @@ set completeopt=longest,menu
 set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc,*.class
+
+" Recursively search upward for tags file
+set tags=./.tags;
+" Jump to definition with Ctrl-]
+nnoremap <leader>gd :tag <C-R><C-W><CR>
+nnoremap <C-o> :pop<CR>  " go back
+nnoremap <silent> <leader>] :tjump <C-R><C-W><CR>
+set tagcase=match
 
 " 离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -657,8 +665,9 @@ endif
 set background=dark
 set t_Co=256
 
-colorscheme solarized
+" colorscheme solarized
 " colorscheme molokai
+colorscheme PaperColor
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -675,3 +684,31 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" ctrlp
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] "Hide files in .gitignore
+let g:ctrlp_show_hidden = 1  "
+nmap     <C-F>f <Plug>CtrlSFPrompt
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = ''
+let g:airline_right_sep = '«'
+let g:airline_right_sep = ''
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
