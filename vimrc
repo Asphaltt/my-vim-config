@@ -294,9 +294,9 @@ set wildignore=*.o,*~,*.pyc,*.class
 " Recursively search upward for tags file
 set tags=./.tags;
 " Jump to definition with Ctrl-]
-nnoremap <leader>gd :tag <C-R><C-W><CR>
+nnoremap <silent> gd :tag <C-R><C-W><CR>
+nnoremap <silent> gD :tjump <C-R><C-W><CR>
 nnoremap <C-o> :pop<CR>  " go back
-nnoremap <silent> <leader>] :tjump <C-R><C-W><CR>
 set tagcase=match
 
 " 离开插入模式后自动关闭预览窗口
