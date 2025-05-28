@@ -63,6 +63,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
+Plug 'prabirshrestha/asyncomplete.vim'
 
 " quick edit
 " 快速注释
